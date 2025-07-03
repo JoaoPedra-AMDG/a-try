@@ -23,7 +23,12 @@ int main() {
         else if (guess > num ){
             cout << "Guess lower" << endl;
         }
+
     }
-    cout << "You lose" << endl;
+
+    if(num!=guess) {
+
+        cout << "You lose" << endl;
+    }
     return 0;
 }
