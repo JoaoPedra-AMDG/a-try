@@ -6,26 +6,107 @@ using namespace std;
 
 int main()
 {
-	auto myScreen = Screen{6,6};
-	myScreen.forward();
-	myScreen.set('*');
-	myScreen.down();
-	myScreen.set('*');
-	myScreen.move(3,3);
-	myScreen.set("---");
+	auto test = Screen{5,5,'#'};
+	test.set(' ');
+	test.back();
+	test.set(' ');
 
-	myScreen.display();
-	cout << endl;
+	//test.back();
+	test.set(' ');
+	test.back();
+	test.set(' ');
 
-	myScreen.reSize(16,16);
-	myScreen.display();
-	myScreen.clear(' ');
+	//test.back();
+	test.set(' ');
+	test.back();
+	test.set(' ');
 
-	myScreen.move(7,7);
-	myScreen.set("BIG");
-	myScreen.move(8,5);
-	myScreen.set("SCREEN");
-	myScreen.display();
+	//test.back();
+	test.set(' ');
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+	
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.back();
+	test.set(' ');
+
+	test.display();
+
+/*
+	auto Joao = Screen{6,6};
+	Joao.clear(' ');
+	Joao.set("******");
+	Joao.move(1,3);
+	for (int i =0; i <5; i++){
+		Joao.move(Direction::back);
+		Joao.set('*');
+	}
+	Joao.move(6,1);
+	Joao.set("**");
+	Joao.display();
+*/
 
 	return 0;
 }

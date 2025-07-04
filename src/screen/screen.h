@@ -11,6 +11,7 @@ using namespace std;
 // The range of string::size_type is guaranteed to be large enough to store the maximum
 // *size* of any string that can be held by the string class as well as any index into
 // the string.
+enum class Direction {HOME, FORWARD, BACK, UP, DOWN, END};
 
 class Screen {
 public:
@@ -36,6 +37,8 @@ public:
 	void down();
 	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
+	//move 2
+	void move(Direction dir);
 
 	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }
