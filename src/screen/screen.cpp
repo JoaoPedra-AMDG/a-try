@@ -36,12 +36,12 @@ void Screen::up()
 	if ( row() == 1 ) 
 	{
 		// at top?
-		if (cursor_ == 4){
-			cursor_ = 20;
+		if (cursor_ == (width_ -1)){
+			cursor_ = height_ * (width_ -1);
 		}	
 		else 
 		{
-			cursor_ = cursor_ + 21;
+			cursor_ = cursor_ + height_ * (width_ -1) + 1;
 			//cerr << "Screen::up - Cannot wrap around in a vertical direction" << endl;
 		}
 	}
@@ -56,13 +56,13 @@ void Screen::down()
 	// do not wrap around
 	if ( row() == height_ ) // at bottom?
 	{
-		if (cursor_ == 20)
+		if (cursor_ == (height_ * (width_ -1)))
 		{
-			cursor_ = 4;
+			cursor_ = width_ -1;
 		}
 		else
 		{
-		cursor_ = cursor_ - 21; 
+		cursor_ = cursor_ - height_ * (width_ -1) - 1; 
 		//cerr << "Screen::down - Cannot wrap around in a vertical direction" << endl;
 		}
 	}
@@ -229,3 +229,41 @@ string::size_type Screen::row() const
 	return (cursor_ + width_)/width_;
 }
 
+void Screen::box(string::size_type row, string::size_type col, string::size_type wid, string::size_type hig)
+{
+	if ((col + wid - 1) > width_)
+	{
+		cout<< "error, box is too wide for display" << endl;
+		return;
+	}
+	if ((row + hig -1) > height_)
+	{
+		cout << "error, box is too tall for display" << endl;
+		return;
+	}
+	move(row,col);
+
+	for ( string::size_type ix = 0; ix < hig; ++ix )
+	{ 
+		for ( string::size_type iy = 0; iy < wid; ++iy )
+		{
+			set('X');
+			cursor_ += 1;
+		}
+		cursor_ = cursor_ + width_-wid;
+	}
+	move(row+1,col+1);
+	string::size_type hig2 = hig -2;
+	string::size_type wid2 = wid -2;
+	for ( string::size_type ix = 0; ix < hig2; ++ix )
+	{ 
+		for ( string::size_type iy = 0; iy < wid2; ++iy )
+		{
+			set(' ');
+			cursor_ += 1;
+		}	
+		cursor_ = cursor_ + width_-wid2;
+	}
+	
+	
+}

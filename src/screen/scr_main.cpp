@@ -6,7 +6,17 @@ using namespace std;
 
 int main()
 {
-	auto test = Screen{5,5,'#'};
+	auto screen = Screen{10,15,' '};
+	screen.display();
+	cout << endl;
+	screen.box(1,1,8,5);
+	screen.box(8,8,4,3);
+	screen.display();
+
+
+/*
+	auto test = Screen{3,2,'#'};
+	test.display();
 	test.set(' ');
 	test.back();
 	test.set(' ');
@@ -94,7 +104,7 @@ int main()
 
 	test.display();
 
-/*
+
 	auto Joao = Screen{6,6};
 	Joao.clear(' ');
 	Joao.set("******");
